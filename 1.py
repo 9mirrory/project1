@@ -1,3 +1,5 @@
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from apscheduler.triggers.cron import CronTrigger
 import discord
 from discord.ext import commands
 from discord.ext.commands import Bot
@@ -56,5 +58,6 @@ async def create_vc(ctx, arg1, arg2, arg3):
 	message = arg1 + ' ' + arg2 + ' ' + arg3 + ' ' + str(categoryid) + ' ' + str(serverid) +'\n'
 	f.write(message)
 	f.close()
-	await ctx.send('Урок будет создан в заданное время') 
+	await ctx.send('Урок будет создан в заданное время')
 
+Bot.run(open('token.txt','r').readline())
